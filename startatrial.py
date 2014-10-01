@@ -13,7 +13,7 @@ def instancetrial(syslist, seed):
     
     
     #ADDSEED LATER
-    return(control.organizercontroll(int(syslist[1]),int(syslist[2]), int(syslist[3]), float(syslist[4]), int(syslist[5])))
+    return(control.organizercontroll(int(syslist[1]),int(syslist[2]), int(syslist[3]), float(syslist[4]), int(syslist[5]), seed))
     
 
 

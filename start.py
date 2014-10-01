@@ -21,15 +21,17 @@ def main():
     y = 0
     x = 0
     while( y ==0):
-        while (x ==0):
+        command_arguments=[]
+        
+        while (x ==0):            
             #parser = argparse.ArgumentParser()
             #parser.add_argument("start", nargs = 6 )
-            if ((len(sys.argv)==7)and((int(sys.argv[3])%(int(sys.argv[2])))==0)):
+            if ((len(sys.argv)>=7)and((int(sys.argv[3])%(int(sys.argv[2])))==0)):
                 #print(str(sys.argv[1]) +str(sys.argv[2])+str(sys.argv[3]) +str(sys.argv[4]) +str(sys.arg[5]) +str(sys.arg[6])
                 #Print out the command line arguments to console in a list
                 #command_arguments=str(sys.argv).strip
                 
-                command_arguments=[]
+                #command_arguments=[]
                 #use the for loop because just using str(sys.argv) is trippy 
                 for arg in sys.argv:
                     command_arguments.append(arg)
@@ -57,29 +59,35 @@ def main():
 
         #inside a while loop that starts a sample with 5 tests
         #these containers are for information regarding the output needed
-        framecountercontainer=[]
-        succesfulframecontainer = []
-        throughputcontainer=[]
-        seedinstancecontainer=[]
+        frame_counter_container=[]
+        successful_frame_container = []
+        thoroughput_container=[]
+        seed_instance_container=[]
             
+        #x = int(sys.argv[6])
         #this is a sample iterating through instances of tests
-        for testinstance in range(0, int(command_arguments[6])):
-            #seed = int(sys.argv[6+testinstance+1])
-            seed=testinstance
+        for testinstance in range(0, int(sys.argv[6])):
+            seed = int(sys.argv[6+testinstance+1])
+            #seed=testinstance
             #framecounter, succesfulframecount, thoroughputinstance, seed = startatrial.instancetrial(sys.argv, seed)
-            framecounter, succesfulframecount, thoroughputinstance, seed = startatrial.instancetrial(command_arguments, seed)
+            frame_counter, successful_frame_count, thoroughput_instance, seed = startatrial.instancetrial(sys.argv, seed)
             
             
             
             #adds information to the containers
-            framecountercontainer.append(framecounter)
-            succesfulframecontainer.append(succesfulframecount)
-            throughputcontainer.append(thoroughputinstance)
-            seedinstancecontainer.append(seed)
+            #framecountercontainer.append(framecounter)
+            #succesfulframecontainer.append(succesfulframecount)
+            #throughputcontainer.append(thoroughputinstance)
+            #seedinstancecontainer.append(seed)
+            
+            frame_counter_container.append(frame_counter)
+            successful_frame_container.append(successful_frame_count)
+            thoroughput_container.append(thoroughput_instance)
+            seed_instance_container.append(seed)
 
         #prints stats needed
         #statsandprint.getandprintstats(frameinstancecontainer, thoroughputcontainer, seedinstancecontainer, sys.argv)
-        statsandprint.getandprintstats(framecountercontainer, throughputcontainer, seedinstancecontainer, command_arguments)
+        statsandprint.getandprintstats(frame_counter_container,successful_frame_container, thoroughput_container, seed_instance_container, sys.argv[1:])
         
         print('\n would you like to do a new test? \n')
         print('enter 0 for no and 1 for yes')
