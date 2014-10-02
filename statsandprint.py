@@ -26,8 +26,11 @@ def standard_dev(lists):
     #print(sqr)
     mean = sum(sqr)/len(sqr)
     #print(mean)
-    standard_deviation = math.sqrt(sum(sqr)/(len(sqr)-1))    
-    return standard_deviation
+    if len(sqr)>1:
+        standard_deviation = math.sqrt(sum(sqr)/(len(sqr)-1))    
+        return standard_deviation
+    else:
+        return 0
 
 #array_of_frames is total number of frames
 #array of thoroughput is self explanatory
@@ -66,7 +69,8 @@ def getandprintstats(array_of_frames,array_of_correct,array_of_thoroughput, arra
     Frame_correct=sum(array_of_correct)
     if (Frame_correct==0):
         Frame_correct=1
-    Frameavg = Frame_total/Frame_correct    
+        
+    #Frameavg = Frame_total/Frame_correct    
     Frameavg = Frame_total/Frame_correct
 
     Thoroughputsum = 0

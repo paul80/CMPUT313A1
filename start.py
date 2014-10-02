@@ -26,7 +26,19 @@ def main():
         while (x ==0):            
             #parser = argparse.ArgumentParser()
             #parser.add_argument("start", nargs = 6 )
-            if ((len(sys.argv)>=7)and((int(sys.argv[3])%(int(sys.argv[2])))==0)):
+
+            if ((len(sys.argv)>=7)and(int(sys.argv[2])==0)):
+                for arg in sys.argv:
+                    command_arguments.append(arg)
+                print(command_arguments)   
+                print('is this correct? ')
+                user_input= int(input("enter 1 for true and 0 to re- enter new input: "))
+                if (user_input==1):
+                    x=1 
+                else:
+                    continue
+                
+            elif ((len(sys.argv)>=7)and((int(sys.argv[3])%(int(sys.argv[2])))==0)):
                 #print(str(sys.argv[1]) +str(sys.argv[2])+str(sys.argv[3]) +str(sys.argv[4]) +str(sys.arg[5]) +str(sys.arg[6])
                 #Print out the command line arguments to console in a list
                 #command_arguments=str(sys.argv).strip
@@ -49,7 +61,7 @@ def main():
                 else:
                 #stays in while loop that asks for user input
                     continue
-                    
+                      
             else:
                 #stays in while loop that asks for user input
                 print("your arguments does not match our criteria please try again \n")
@@ -96,8 +108,6 @@ def main():
             y = 0
         else:
             y = 1
-
-        
 
         #youve indented these lines above
         #call divider here
