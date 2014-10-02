@@ -38,7 +38,7 @@ def standard_dev(lists):
 #array of input is just command line arguments
 def getandprintstats(array_of_frames,array_of_correct,array_of_thoroughput, array_of_seeds, array_of_input ):
 
-    T = 5
+    T=int(array_of_input[5])
     #Thoroughputstddev is probably correct
     
     #Framestddev = standard_dev(array_of_frames)
@@ -70,13 +70,18 @@ def getandprintstats(array_of_frames,array_of_correct,array_of_thoroughput, arra
     if (Frame_correct==0):
         Frame_correct=1
         
-    #Frameavg = Frame_total/Frame_correct    
-    Frameavg = Frame_total/Frame_correct
+    #Frameavg = Frame_total/Frame_correct 
+    Frameavg=Frame_total/Frame_correct
+    if (Frameavg!=1):
+        Frameavg = (Frame_total/Frame_correct)/T  #Divide by t to get average over T trials
 
     Thoroughputsum = 0
     for athoroughput in (array_of_thoroughput):
         Thoroughputsum = Thoroughputsum + athoroughput
     
+    if Thoroughputsum!=0:
+        Thoroughputsum=Thoroughputsum/T
+        
     Thoroughputavg = Thoroughputsum/(len(array_of_thoroughput))
 
     Framec1 = float((Frameavg)-(2.776*(Framestddev/(math.sqrt(T)))))
@@ -95,7 +100,7 @@ def getandprintstats(array_of_frames,array_of_correct,array_of_thoroughput, arra
     contain = ""
     for x in array_of_input:
         contain = contain + x + " "
-    print(contain)
+    #print(T)
     print("Frame std deviation: ",Framestddev)
     print("Thoroughput std deviation: ", Thoroughputstddev)
     print("Frame stats:"+str(Frameavg)+" "+"("+ str(Framec1)+ "," + str(Framec2)+")")
