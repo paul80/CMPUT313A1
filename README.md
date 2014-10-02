@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 License:
  /*
     deasis-todolist: To-do list that manages and emails items in the list.
@@ -54,3 +55,6 @@ CMPUT333A1
 
 This is assignment 1. 
 >>>>>>> 36d1969a43685db4af1fc3bc883de1ae5c72bdc9
+=======
+CMPUT 313 Assignment 1 ..
+>>>>>>> 6f38e6dc7cbd2923905f61dc9731985e1863371c
